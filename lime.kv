@@ -1,0 +1,838 @@
+<UI>:
+    name:'ui'
+    MDScreen:
+        name: 'loginpage'
+        MDFloatLayout:
+
+            MDLabel:
+
+                text:'Indian Railways'
+                font_size:'30sp'
+                font_name:'OpenSans-Regular'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .622 , "center_y": .675}
+            Image:
+                source: "indianrailways.png"
+                pos_hint: {"center_x": .22 , "center_y": .8}
+                size_hint:(1.8,1.8)
+            MDLabel:
+                text:'Railway Booking System'
+                font_size:'40sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .62 , "center_y": .625}
+            MDTextField:
+                id:username
+                hint_text:"Username"
+                max_text_length:10
+                required:False
+                pos_hint:{"center_x":0.4885,"center_y":0.56}
+                size_hint_x:None
+                width: 450
+                font_size:"22sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+                helper_text:'Please enter the details'
+                helper_text_mode:"persistent"
+            MDTextField:
+                id:password
+                hint_text:"Password"
+                max_text_length:8
+                required:False
+                helper_text:"Please Enter Password"
+                helper_text_mode:"persistent"
+                pos_hint:{"center_x":0.4885,"center_y":0.46}
+                size_hint_x:None
+                width: 450
+                font_size:"22sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+                password:True
+            MDRoundFlatButton:
+                text:"Login"
+                theme_text_color: "Custom"
+                font_size: "22sp"
+                text_color: 0,0,1/255 ,1
+                halign:"center"
+                size_hint_x:.18
+                font_name:"OpenSans-Semibold"
+                pos_hint:{"center_x":.21,"center_y":.35}
+                on_release: app.login_pro()
+                md_bg_color:41/255, 108/255, 205/255 , 1
+            MDRoundFlatButton:
+                text:"New User?"
+                theme_text_color: "Custom"
+                font_size: "22sp"
+                text_color: 0,0,1/255 ,1
+                halign:"center"
+                size_hint_x:.18
+                font_name:"OpenSans-Semibold"
+                pos_hint:{"center_x":.745,"center_y":.35}
+                line_width:'1.5'
+                on_release: app.new_usr()
+            MDRoundFlatIconButton:
+                text: "Exit"
+                icon: "arrow-collapse-left"
+                text_color: "black"
+                font_size:'22sp'
+                pos_hint:{"center_x":.18,"center_y":.28}
+                on_press:app.stop()
+                line_color: 0,0,0,0
+                icon_color:'black'
+            MDIconButton:
+                id: passbutt
+                icon:"eye-off"
+                user_font_size:"20sp"
+                pos_hint:{"center_x": .87,"center_y": .46}
+                on_release:app.viewpass()
+            MDIconButton:
+                icon:'account'
+                user_font_size:"20sp"
+                pos_hint:{"center_x": .87,"center_y": .56}
+    
+    
+    MDScreen:
+        name: 'new_usr'
+        MDFloatLayout:
+
+            MDLabel:
+                text:'Indian Railways'
+                font_size:'30sp'
+                font_name:'OpenSans-Regular'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .622 , "center_y": .69}
+            Image:
+                source: "indianrailways.png"
+                pos_hint: {"center_x": .22 , "center_y": .815}
+                size_hint:(1.8,1.8)
+            MDLabel:
+                text:'Railway Booking System'
+                font_size:'40sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .62 , "center_y": .640}
+            MDTextField:
+                id:new_name
+                hint_text:"Name"
+                required:False
+                pos_hint:{"center_x":0.3,"center_y":0.575}
+                size_hint_x:None
+                width: 220
+                font_size:"22sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+                helper_text:'Please enter the details'
+                helper_text_mode:"persistent"
+            MDTextField:
+                id:new_mobno
+                hint_text:"Mobile No."
+                max_text_length:10
+                required:False
+                helper_text:"Please Enter Mobile No"
+                helper_text_mode:"persistent"
+                pos_hint:{"center_x":0.3,"center_y":0.475}
+                size_hint_x:None
+                width: 220
+                font_size:"22sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+            MDTextField:
+                id:new_email
+                hint_text:"E-mail"
+                required:False
+                helper_text:"Please Enter E-mail"
+                helper_text_mode:"persistent"
+                pos_hint:{"center_x":0.3,"center_y":0.375}
+                size_hint_x:None
+                width: 220
+                font_size:"22sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+            MDRoundFlatButton:
+                text:"Create Account"
+                theme_text_color: "Custom"
+                font_size: "22sp"
+                text_color: 0,0,1/255 ,1
+                halign:"center"
+                size_hint_x:.18
+                font_name:"OpenSans-Semibold"
+                pos_hint:{"center_x":.28,"center_y":.265}
+                on_release: app.create_acc()
+                md_bg_color:41/255, 108/255, 205/255 , 1
+            MDRoundFlatButton:
+                text:"Already have an account?"
+                theme_text_color: "Custom"
+                font_size: "20sp"
+                text_color: 0,0,1/255 ,1
+                halign:"center"
+                size_hint_x:.18
+                font_name:"OpenSans-Semibold"
+                pos_hint:{"center_x":.35,"center_y":.185}
+                line_width:'1.5'
+                on_release: app.alrdyacc()
+            MDRoundFlatIconButton:
+                text: "Exit"
+                icon: "arrow-collapse-left"
+                text_color: "black"
+                font_size:'22sp'
+                pos_hint:{"center_x":.18,"center_y":.115}
+                on_press:app.stop()
+                line_color: 0,0,0,0
+                icon_color:'black'
+            MDIconButton:
+                id: passbutt1
+                icon:"eye-off"
+                user_font_size:"20sp"
+                pos_hint:{"center_x": .87,"center_y": .375}
+                on_release:app.viewpass1()
+                
+            MDTextField:
+                id:new_username
+                hint_text:"Username"
+                max_text_length : 10
+                pos_hint:{"center_x":0.68,"center_y":0.575}
+                size_hint_x:None
+                width: 220
+                font_size:"22sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+                helper_text:'Please enter the details'
+                helper_text_mode:"persistent"
+            MDTextField:
+                id:new_pass
+                hint_text:"Password"
+                max_text_length:8
+                required:False
+                helper_text:"Please Enter Password"
+                helper_text_mode:"persistent"
+                pos_hint:{"center_x":0.68,"center_y":0.475}
+                size_hint_x:None
+                width: 220
+                font_size:"22sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+                password :True
+            MDTextField:
+                id:re_new_pass
+                hint_text:"Re-Type Password"
+                required:False
+                helper_text:"Enter Password Again"
+                helper_text_mode:"persistent"
+                pos_hint:{"center_x":0.68,"center_y":0.375}
+                size_hint_x:None
+                width: 220
+                font_size:"22sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+                password :True
+
+    MDScreen:
+        name: 'homepg'
+        MDFloatLayout:
+            Image:
+                source: "indianrailways.png"
+                pos_hint: {"center_x": .1 , "center_y": .85}
+                size_hint:(1.8,1.8)
+            MDLabel:
+                text:
+                id:innername
+                font_size:'40sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .55 , "center_y": .7}
+            MDLabel:
+                text:''
+                id:currdate
+                font_size:'20sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": 1.35 , "center_y": .91}
+            MDRoundFlatIconButton:
+                text: "Trains between Stations"
+                icon: "card-search"
+                font_size:'25sp'
+                font_name:'OpenSans-Semibold'
+                theme_text_color: "Custom"
+                text_color: "white"
+                line_color: 0/255, 0/255, 0/255 , 0
+                pos_hint:{"center_x": .29 , "center_y": .58}
+                md_bg_color:41/255, 108/255, 205/255 , 1
+                size_hint: .5, .08
+                icon_color:'white'
+                anchor_x:'left'
+                on_release:app.tr_bw_st()
+            MDRoundFlatIconButton:
+                text: "Book Seat"
+                icon: "book-information-variant"
+                font_size:'25sp'
+                font_name:'OpenSans-Semibold'
+                theme_text_color: "Custom"
+                text_color: "white"
+                line_color: 0/255, 0/255, 0/255 , 0
+                pos_hint:{"center_x": .29 , "center_y": .48}
+                md_bg_color:41/255, 108/255, 205/255 , 1
+                size_hint: .5, .08
+                icon_color:'white'
+                anchor_x:'left'
+                on_release: app.book_ticket()
+            MDRoundFlatIconButton:
+                text: "See PNR Information"
+                icon: "book-search"
+                font_size:'25sp'
+                font_name:'OpenSans-Semibold'
+                theme_text_color: "Custom"
+                text_color: "white"
+                line_color: 0/255, 0/255, 0/255 , 0
+                pos_hint:{"center_x": .29 , "center_y": .38}
+                md_bg_color:41/255, 108/255, 205/255 , 1
+                size_hint: .5, .08
+                icon_color:'white'
+                anchor_x:'left'
+                on_release: app.pnr_page()
+            MDRoundFlatIconButton:
+                text: "Contact Us"
+                icon: "contacts"
+                font_size:'25sp'
+                font_name:'OpenSans-Semibold'
+                theme_text_color: "Custom"
+                text_color: "white"
+                line_color: 0/255, 0/255, 0/255 , 0
+                pos_hint:{"center_x": .29 , "center_y": .28}
+                md_bg_color:41/255, 108/255, 205/255 , 1
+                size_hint: .5, .08
+                icon_color:'white'
+                anchor_x:'left'
+                on_release: app.contact_us(obj = 'obj')
+            MDRoundFlatIconButton:
+                text: "Exit"
+                icon: "arrow-collapse-left"
+                text_color: "black"
+                font_size:'22sp'
+                pos_hint:{"center_x":.075,"center_y":.13}
+                on_press:app.stop()
+                line_color: 0,0,0,0
+                icon_color:'black'
+            MDRoundFlatIconButton:
+                text: "Logout"
+                icon: "arrow-collapse-left"
+                text_color: "black"
+                font_size:'22sp'
+                pos_hint:{"center_x":.091,"center_y":.19}
+                on_press:app.alrdyacc()
+                line_color: 0,0,0,0
+                icon_color:'black'
+            Image:
+                source: "train1.jpeg"
+                pos_hint: {"center_x": .85 , "center_y": .7}
+                size_hint:(1.8,1.8)
+            Image:
+                source: "train2.jpeg"
+                pos_hint: {"center_x": .85 , "center_y": .5}
+                size_hint:(1.75,1.75)
+            Image:
+                source: "train3.jpeg"
+                pos_hint: {"center_x": .85 , "center_y": .25}
+                size_hint:(1.75,1.75)
+
+            MDLabel:
+                text:'Powered by IRCTC'
+                font_size:'30sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .87 , "center_y": .95}
+            Image:
+                source: "IRCTC.png"
+                pos_hint: {"center_x": .48 , "center_y": .88}
+                size_hint:(.2,.2)
+
+    MDScreen:
+        name: 'trainsearch'
+        MDFloatLayout:
+            MDLabel:
+                text:'Powered by IRCTC'
+                font_size:'30sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .75 , "center_y": .95}
+            Image:
+                source: "IRCTC.png"
+                pos_hint: {"center_x": .6 , "center_y": .95}
+                size_hint:(.2,.2)
+            MDTextField:
+                mode:'rectangle'
+                id:from_serch
+                hint_text:"From"
+                required:False
+                helper_text:'Station Code Please'
+                helper_text_mode:"persistent"
+                pos_hint:{"center_x":0.15,"center_y":0.85}
+                size_hint_x:None
+                width: 220
+                font_size:"16sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+
+            MDTextField:
+                mode:'rectangle'
+                id:from_to
+                hint_text:"To"
+                required:False
+                helper_text:'Station Code Please'
+                helper_text_mode:"persistent"
+                pos_hint:{"center_x":0.38,"center_y":0.85}
+                size_hint_x:None
+                width: 220
+                font_size:"16sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+            MDTextField:
+                mode:'rectangle'
+                id:caldate
+                hint_text:"Date"
+                required:False
+                helper_text:'Date in Format(YYYY-MM-DD)'
+                helper_text_mode:"persistent"
+                pos_hint:{"center_x":0.61,"center_y":0.85}
+                size_hint_x:None
+                width: 220
+                font_size:"16sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+
+            MDIconButton:
+                icon:'calendar'
+                pos_hint:{"center_x":0.73,"center_y":0.85}
+                on_press:app.clndr()
+
+            MDTextField:
+                id: search_field
+                mode:'rectangle'
+                hint_text: 'Search Station'
+                on_text: root.set_list_md_icons(self.text, True)
+                helper_text:'Search Station Code'
+                helper_text_mode:"persistent"
+                pos_hint:{"center_x":0.85,"center_y":0.85}
+                size_hint_x:None
+                width: 220
+            MDCard:
+                md_bg_color: 0 , 0 , 0 , 0
+                size_hint: None, None
+                size : 220 , 300
+                pos_hint: {"center_x": .85, "center_y":.6}
+
+                RecycleView:
+                    id: rv
+                    key_viewclass: 'viewclass'
+                    key_size: 'height'
+
+                    RecycleBoxLayout:
+                        default_size: None, None
+                        default_size_hint: 1, None
+                        size_hint_y: None
+                        height: self.minimum_height
+                        orientation: 'vertical'
+            MDFlatButton:
+                text:"Search"
+                theme_text_color: "Custom"
+                font_size: "22sp"
+                text_color: 0,0,1/255 ,1
+                halign:"center"
+                font_name:"OpenSans-Semibold"
+                pos_hint:{"center_x":.09,"center_y":.745}
+                on_release:app.search(search=True)
+                md_bg_color:41/255, 108/255, 205/255 , 1
+
+            MDCard:
+                md_bg_color: 0 , 0 , 0 , 0
+                size_hint: None, None
+                size : 750 , 450
+                pos_hint: {"center_x": .395, "center_y":.39}
+
+                RecycleView:
+                    id: trdata
+                    key_viewclass: 'viewclass'
+                    key_size: 'height'
+
+                    RecycleBoxLayout:
+                        default_size: None, None
+                        default_size_hint: 1, None
+                        size_hint_y: None
+                        height: self.minimum_height
+                        orientation: 'vertical'
+            MDRoundFlatIconButton:
+                text: "Exit"
+                icon: "arrow-collapse-left"
+                text_color: "black"
+                font_size:'25sp'
+                pos_hint:{"center_x":.086,"center_y":.95}
+                on_press:app.stop()
+                line_color: 0,0,0,0
+                icon_color:'black'
+            MDRoundFlatIconButton:
+                text: "Back"
+                icon: "arrow-collapse-left"
+                text_color: "black"
+                font_size:'25sp'
+                pos_hint:{"center_x":.086,"center_y":.05}
+                on_press:app.root.current = 'homepg'
+                line_color: 0,0,0,0
+                icon_color:'black'
+
+    MDScreen:
+        name: 'book_train'
+        MDFloatLayout:
+            MDLabel:
+                text:'Powered by IRCTC'
+                font_size:'30sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .75 , "center_y": .95}
+            Image:
+                source: "IRCTC.png"
+                pos_hint: {"center_x": .6 , "center_y": .95}
+                size_hint:(.2,.2)
+            MDRoundFlatIconButton:
+                text: "Exit"
+                icon: "arrow-collapse-left"
+                text_color: "black"
+                font_size:'25sp'
+                pos_hint:{"center_x":.086,"center_y":.95}
+                on_press:app.stop()
+                line_color: 0,0,0,0
+                icon_color:'black'
+            MDRoundFlatIconButton:
+                text: "Back"
+                icon: "arrow-collapse-left"
+                text_color: "black"
+                font_size:'25sp'
+                pos_hint:{"center_x":.086,"center_y":.05}
+                on_press:app.root.current = 'homepg'
+                line_color: 0,0,0,0
+                icon_color:'black'
+            MDTextField:
+                mode:'rectangle'
+                id:trno
+                hint_text:"Train No"
+                required:False
+                helper_text:'Train No Please'
+                helper_text_mode:"persistent"
+                pos_hint:{"center_x":0.15,"center_y":0.85}
+                size_hint_x:None
+                width: 220
+                font_size:"16sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+            MDTextField:
+                mode:'rectangle'
+                id:book_from
+                hint_text:"Source"
+                required:False
+                helper_text:'Station Code Please'
+                helper_text_mode:"persistent"
+                pos_hint:{"center_x":0.15,"center_y":0.74}
+                size_hint_x:None
+                width: 220
+                font_size:"16sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+
+            MDTextField:
+                mode:'rectangle'
+                id:book_to
+                hint_text:"Destination"
+                required:False
+                helper_text:'Station Code Please'
+                helper_text_mode:"persistent"
+                pos_hint:{"center_x":0.15,"center_y":0.63}
+                size_hint_x:None
+                width: 220
+                font_size:"16sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+            MDTextField:
+                mode:'rectangle'
+                id:book_caldate
+                hint_text:"Journey Date"
+                required:False
+                helper_text:'Date in Format(YYYY-MM-DD)'
+                helper_text_mode:"persistent"
+                pos_hint:{"center_x":0.15,"center_y":0.52}
+                size_hint_x:None
+                width: 220
+                font_size:"16sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+
+            MDIconButton:
+                icon:'calendar'
+                pos_hint:{"center_x":0.27,"center_y":0.52}
+                on_press:app.clndr1()
+
+            MDFlatButton:
+                text:"Preview"
+                theme_text_color: "Custom"
+                font_size: "22sp"
+                size_hint_x:.2
+                text_color: 0,0,1/255 ,1
+                halign:"center"
+                font_name:"OpenSans-Semibold"
+                pos_hint:{"center_x":.15,"center_y":.24}
+                on_release:app.preview()
+                md_bg_color:41/255, 108/255, 205/255 , 1
+
+            MDTextField:
+                mode:'rectangle'
+                id:clas
+                hint_text:"Class"
+                required:False
+                helper_text:'Enter Your Class Type(like 3A,2A,SL)'
+                helper_text_mode:"persistent"
+                pos_hint:{"center_x":0.15,"center_y":0.41}
+                size_hint_x:None
+                width: 220
+                font_size:"16sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+
+            MDTextField:
+                mode:'rectangle'
+                id:book_name
+                hint_text:"Enter Your Name"
+                required:False
+                helper_text:'This person must be present'
+                helper_text_mode:"persistent"
+                pos_hint:{"center_x":0.45,"center_y":0.85}
+                size_hint_x:None
+                width: 220
+                font_size:"16sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+            MDTextField:
+                mode:'rectangle'
+                id:no_seats
+                hint_text:"No of Seats"
+                required:False
+                helper_text:'Max 6'
+                helper_text_mode:"persistent"
+                pos_hint:{"center_x":0.45,"center_y":0.74}
+                size_hint_x:None
+                width: 220
+                font_size:"16sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+
+            MDFlatButton:
+                text:"Book Ticket"
+                theme_text_color: "Custom"
+                font_size: "22sp"
+                size_hint_x:.2
+                text_color: 0,0,1/255 ,1
+                halign:"center"
+                font_name:"OpenSans-Semibold"
+                pos_hint:{"center_x":.45,"center_y":.24}
+                on_release:app.book_tr()
+                md_bg_color:41/255, 108/255, 205/255 , 1
+
+            MDLabel:
+                text:''
+                id:cost
+                font_size:'30sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .85 , "center_y": .4}
+            MDLabel:
+                text:'Total Cost'
+                font_size:'30sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .85 , "center_y": .5}
+            MDLabel:
+                text:'Including GST'
+                font_size:'30sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .85 , "center_y": .45}
+            MDLabel:
+                text:'Train'
+                font_size:'30sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .85 , "center_y": .6}
+            MDLabel:
+                text:''
+                id:trname
+                font_size:'20sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .85 , "center_y": .55}
+            Image:
+                source: "train1.jpeg"
+                pos_hint: {"center_x": .85 , "center_y": .7}
+                size_hint:(1.8,1.8)
+            Image:
+                source: "train2.jpeg"
+                pos_hint: {"center_x": .85 , "center_y": .5}
+                size_hint:(1.75,1.75)
+            Image:
+                source: "train3.jpeg"
+                pos_hint: {"center_x": .85 , "center_y": .25}
+                size_hint:(1.75,1.75)
+
+    MDScreen:
+        name: 'pnr'
+        MDFloatLayout:
+            MDLabel:
+                text:'Powered by IRCTC'
+                font_size:'30sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .75 , "center_y": .95}
+            Image:
+                source: "IRCTC.png"
+                pos_hint: {"center_x": .8 , "center_y": .95}
+                size_hint:(.2,.2)
+            MDTextField:
+                mode:'rectangle'
+                id:pnr
+                hint_text:"PNR"
+                required:False
+                helper_text:'Enter Your PNR'
+                helper_text_mode:"persistent"
+                pos_hint:{"center_x":0.2,"center_y":0.85}
+                size_hint_x:None
+                width: 220
+                font_size:"16sp"
+                line_color_focus: 0,0,0,1
+                multiline:False
+            MDFlatButton:
+                text:"See PNR Details"
+                theme_text_color: "Custom"
+                font_size: "22sp"
+                size_hint_x:.22
+                text_color: 0,0,1/255 ,1
+                halign:"center"
+                font_name:"OpenSans-Semibold"
+                pos_hint:{"center_x":.17,"center_y":.74}
+                on_release:app.see_pnr()
+                md_bg_color:41/255, 108/255, 205/255 , 1
+            MDRoundFlatIconButton:
+                text: "Back"
+                icon: "arrow-collapse-left"
+                text_color: "black"
+                font_size:'25sp'
+                pos_hint:{"center_x":.088,"center_y":.05}
+                on_press:app.bck_home()
+                line_color: 0,0,0,0
+                icon_color:'black'
+            MDRoundFlatIconButton:
+                text: "Exit"
+                icon: "arrow-collapse-left"
+                text_color: "black"
+                font_size:'25sp'
+                pos_hint:{"center_x":.086,"center_y":.95}
+                on_press:app.stop()
+                line_color: 0,0,0,0
+                icon_color:'black'
+            MDLabel:
+                text:'Train:'
+                font_size:'20sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .55 , "center_y": .67}
+            MDLabel:
+                text:''
+                id:pnr_trname
+                font_size:'25sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .55 , "center_y": .62}
+            MDLabel:
+                text:'From:'
+                font_size:'20sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .55 , "center_y": .53}
+            MDLabel:
+                text:''
+                id:pnr_from
+                font_size:'25sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .55 , "center_y": .48}
+            MDLabel:
+                text:'To:'
+                font_size:'20sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .55 , "center_y": .39}
+            MDLabel:
+                text:''
+                id:pnr_to
+                font_size:'25sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .55 , "center_y": .34}
+            MDLabel:
+                text:'Date of Journey:'
+                font_size:'20sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .55 , "center_y": .25}
+            MDLabel:
+                text:''
+                id:pnr_doj
+                font_size:'25sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": .55 , "center_y": .20}
+            MDLabel:
+                text:'Name:'
+                font_size:'20sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": 1.15 , "center_y": .53}
+            MDLabel:
+                text:''
+                id:pnr_name
+                font_size:'25sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": 1.15 , "center_y": .48}
+
+            MDLabel:
+                text:'Coach:'
+                font_size:'20sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": 1.15 , "center_y": .39}
+            MDLabel:
+                text:''
+                id:pnr_coach
+                font_size:'25sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": 1.15 , "center_y": .34}
+            MDLabel:
+                text:'Seats:'
+                font_size:'20sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": 1.15 , "center_y": .25}
+            MDLabel:
+                text:''
+                id:pnr_seats
+                font_size:'25sp'
+                font_name:'OpenSans-Semibold'
+                color: 0,0,0,1
+                pos_hint:{"center_x": 1.15 , "center_y": .2}
+            MDFlatButton:
+                text:"Cancel PNR"
+                theme_text_color: "Custom"
+                font_size: "22sp"
+                size_hint_x:.32
+                text_color: 0,0,1/255 ,1
+                halign:"center"
+                font_name:"OpenSans-Semibold"
+                pos_hint:{"center_x":.6,"center_y":.74}
+                on_release:app.canc_dbox()
+                md_bg_color:225/255, 44/255, 44/255 , 1
